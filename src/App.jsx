@@ -1,5 +1,5 @@
+import { Minus, Plus, ShoppingCart, Trash2 } from 'lucide-react';
 import React, { useState } from 'react';
-import { ShoppingCart, Plus, Minus, Trash2 } from 'lucide-react';
 
 const produtos = [
   {
@@ -10,7 +10,7 @@ const produtos = [
     promocao: true,
     descricao: 'Hidratante facial com vitamina C que ilumina e revitaliza a pele. Textura leve e rápida absorção.',
     categoria: 'Rosto',
-    img: 'https://images.unsplash.com/photo-1556228852-80aa0a8a9e69?w=400&h=400&fit=crop&q=80'
+    img: 'https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=400&h=400&fit=crop&q=80'
   },
   {
     id: 2,
@@ -19,7 +19,7 @@ const produtos = [
     promocao: false,
     descricao: 'Sabonete artesanal com microesferas naturais. Remove impurezas e células mortas suavemente.',
     categoria: 'Corpo',
-    img: 'https://images.unsplash.com/photo-1585838139375-ca2e92d7484b?w=400&h=400&fit=crop&q=80'
+    img: 'https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=400&h=400&fit=crop&q=80'
   },
   {
     id: 3,
@@ -29,7 +29,7 @@ const produtos = [
     promocao: true,
     descricao: 'Kit completo para cabelos danificados. Fórmula com óleo de argan e proteínas reparadoras.',
     categoria: 'Cabelo',
-    img: 'https://images.unsplash.com/photo-1629198735754-8c9d19b93f3f?w=400&h=400&fit=crop&q=80'
+    img: 'https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=400&h=400&fit=crop&q=80'
   },
   {
     id: 4,
@@ -84,6 +84,17 @@ export default function App() {
   const [mostrarCarrinho, setMostrarCarrinho] = useState(false);
   const [categoriaFiltro, setCategoriaFiltro] = useState('Todos');
   const [busca, setBusca] = useState('');
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+
+  // Detecta mudanças no tamanho da tela
+  React.useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    handleResize(); // Chama imediatamente
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   const adicionarAoCarrinho = (produto) => {
     const itemExistente = carrinho.find(item => item.id === produto.id);
@@ -131,7 +142,7 @@ export default function App() {
       return;
     }
 
-    let mensagem = '*🛍️ Novo Pedido - Beauté Naturelle*\n\n';
+    let mensagem = '*🛍️ Novo Pedido - Cielly Beauty*\n\n';
     mensagem += '*Produtos:*\n';
     
     carrinho.forEach((item, index) => {
@@ -154,6 +165,25 @@ export default function App() {
     <div style={{ minHeight: '100vh', background: 'linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%)', fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" }}>
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+        
+        .products-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(250px, 1fr)); /* se quiser no máximo 3 */
+  gap: 20px;
+}
+
+@media (max-width: 900px) {
+  .products-grid {
+    grid-template-columns: repeat(2, minmax(220px, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .products-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
       `}</style>
       {/* Header */}
       <header style={{
@@ -170,7 +200,7 @@ export default function App() {
         gap: '10px'
       }}>
         <div>
-          <h1 style={{ margin: 0, color: '#2d3748', fontSize: 'clamp(20px, 5vw, 28px)', fontWeight: '800', letterSpacing: '-0.5px' }}>✨ Beauté Naturelle</h1>
+          <h1 style={{ margin: 0, color: '#2d3748', fontSize: 'clamp(20px, 5vw, 28px)', fontWeight: '800', letterSpacing: '-0.5px' }}>✨ Cielly Beauty</h1>
           <p style={{ margin: '5px 0 0 0', color: '#718096', fontSize: 'clamp(12px, 3vw, 14px)', fontWeight: '500' }}>Cosméticos naturais e sustentáveis</p>
         </div>
         
@@ -216,7 +246,7 @@ export default function App() {
         </button>
       </header>
 
-      <div style={{ padding: '20px', maxWidth: '1400px', margin: '0 auto' }}>
+      <div style={{ padding: '20px', maxWidth: '1400px', margin: '0 auto', width: '100%', boxSizing: 'border-box' }}>
         {/* Produtos */}
         {!mostrarCarrinho ? (
           <>
@@ -283,11 +313,7 @@ export default function App() {
               </p>
             </div>
 
-            <div style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 280px), 1fr))',
-              gap: '20px'
-            }}>
+            <div className="products-grid">
               {produtosFiltrados.map(produto => (
                 <div key={produto.id} style={{
                   background: 'white',
@@ -300,6 +326,7 @@ export default function App() {
                   flexDirection: 'column',
                   height: '100%',
                   maxWidth: '100%',
+                  width: '100%',
                   position: 'relative'
                 }}
                 onMouseEnter={(e) => {
@@ -337,19 +364,34 @@ export default function App() {
                     backgroundColor: '#ffffff',
                     display: 'flex',
                     alignItems: 'center',
-                    justifyContent: 'center',
-                    padding: '20px'
+                    justifyContent: 'center'
                   }}>
                     <img 
                       src={produto.img} 
                       alt={produto.nome}
                       style={{ 
-                        maxWidth: '100%', 
-                        maxHeight: '100%', 
+                        width: '100%',
+                        height: '100%',
                         objectFit: 'contain',
                         objectPosition: 'center',
                         display: 'block'
                       }} 
+                      onLoad={(e) => {
+                        // Detecta se a imagem é pequena (PNG/SVG com fundo transparente)
+                        const img = e.target;
+                        if (img.naturalWidth < 300 || img.naturalHeight < 300) {
+                          img.style.objectFit = 'contain';
+                          img.style.width = 'auto';
+                          img.style.height = 'auto';
+                          img.style.maxWidth = '100%';
+                          img.style.maxHeight = '100%';
+                        } else {
+                          // Imagem grande - preenche o espaço
+                          img.style.objectFit = 'cover';
+                          img.style.width = '100%';
+                          img.style.height = '100%';
+                        }
+                      }}
                     />
                   </div>
                   
@@ -473,17 +515,17 @@ export default function App() {
                       padding: '15px',
                       borderRadius: '15px',
                       display: 'flex',
-                      flexDirection: window.innerWidth < 768 ? 'column' : 'row',
+                      flexDirection: isMobile ? 'column' : 'row',
                       gap: '15px',
-                      alignItems: window.innerWidth < 768 ? 'stretch' : 'center',
+                      alignItems: isMobile ? 'stretch' : 'center',
                       boxShadow: '0 4px 15px rgba(0,0,0,0.1)'
                     }}>
                       <img 
                         src={item.img} 
                         alt={item.nome}
                         style={{ 
-                          width: window.innerWidth < 768 ? '100%' : '100px', 
-                          height: window.innerWidth < 768 ? 'auto' : '100px',
+                          width: isMobile ? '100%' : '100px', 
+                          height: isMobile ? 'auto' : '100px',
                           aspectRatio: '1/1',
                           objectFit: 'cover',
                           objectPosition: 'center',
@@ -500,7 +542,7 @@ export default function App() {
                       
                       <div style={{ 
                         display: 'flex', 
-                        flexDirection: window.innerWidth < 768 ? 'row' : 'row',
+                        flexDirection: isMobile ? 'row' : 'row',
                         alignItems: 'center', 
                         justifyContent: 'space-between',
                         gap: '15px',
@@ -579,7 +621,7 @@ export default function App() {
                 }}>
                   <div style={{ 
                     display: 'flex', 
-                    flexDirection: window.innerWidth < 768 ? 'column' : 'row',
+                    flexDirection: isMobile ? 'column' : 'row',
                     justifyContent: 'space-between', 
                     alignItems: 'center', 
                     marginBottom: '20px',
@@ -591,7 +633,7 @@ export default function App() {
                     </span>
                   </div>
                   
-                  <div style={{ display: 'flex', flexDirection: window.innerWidth < 768 ? 'column' : 'row', gap: '15px' }}>
+                  <div style={{ display: 'flex', flexDirection: isMobile ? 'column' : 'row', gap: '15px' }}>
                     <button
                       onClick={() => setMostrarCarrinho(false)}
                       style={{
