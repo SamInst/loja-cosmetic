@@ -7,43 +7,7 @@ import {
   ChevronRight
 } from 'lucide-react';
 import React, { useState, useEffect } from 'react';
-
-const produtos = [
-  {
-    id: 1,
-    nome: 'Serum',
-    preco: 18.0,
-    precoAntigo: 0,
-    promocao: false,
-    descricao:
-      'Serum facial leve e de rápida absorção, que hidrata profundamente, melhora a textura da pele e deixa um brilho saudável imediato.',
-    categoria: 'Rosto',
-    imagens: [
-      'https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=400&h=400&fit=crop&q=80',
-      'https://images.unsplash.com/photo-1512436991641-6745cdb1723f?w=400&h=400&fit=crop&q=80',
-      'https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=400&h=400&fit=crop&q=80',
-      'https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=400&h=400&fit=crop&q=80',
-      'https://images.unsplash.com/photo-151243699164-6745cdb1723f?w=400&h=400&fit=crop&q=80',
-      'https://images.unsplash.com/photo-152233578920-aabd1fc54bc9?w=400&h=400&fit=crop&q=80',
-      'https://images.unsplash.com/photo-150674403813-46273834b3fb?w=400&h=400&fit=crop&q=80',
-      'src/assets/serum2.png',
-      'src/assets/serum.png',
-    ]
-  },
-  {
-    id: 2,
-    nome: 'Sabonete Esfoliante Natural',
-    preco: 35.9,
-    promocao: false,
-    descricao:
-      'Sabonete artesanal com microesferas naturais. Remove impurezas e células mortas suavemente.',
-    categoria: 'OLHOS E SOBRANCELHAS',
-    imagens: [
-      'https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=400&h=400&fit=crop&q=80',
-      '/images/ps53.jpeg',
-    ]
-  }
-];
+import { produtos } from './data/produtos';
 
 export default function App() {
   const [carrinho, setCarrinho] = useState([]);
