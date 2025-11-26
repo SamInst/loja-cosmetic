@@ -149,7 +149,7 @@ export default function App() {
       alert("Seu carrinho está vazio!");
       return;
     }
-    let mensagem = "*🛍️ Novo Pedido - Cielly Beauty*\n\n";
+    let mensagem = "*🛍️ Novo Pedido - CB Store*\n\n";
     mensagem += "*Produtos:*\n";
 
     carrinho.forEach((item, index) => {
@@ -162,7 +162,7 @@ export default function App() {
     mensagem += `\n*Total do Pedido: R$ ${totalCarrinho.toFixed(2)}*\n\n`;
     mensagem += "_Aguardo confirmação! 😎_";
 
-    const telefone = "5598984508897";
+    const telefone = "559870187296";
     const url = `https://wa.me/${telefone}?text=${encodeURIComponent(mensagem)}`;
     window.open(url, "_blank");
   };
@@ -482,7 +482,7 @@ export default function App() {
               letterSpacing: "-0.5px",
             }}
           >
-            ✨ Cielly Beauty
+            ✨ CB Store
           </h1>
           <p
             style={{
@@ -492,7 +492,7 @@ export default function App() {
               fontWeight: "500",
             }}
           >
-            Cosméticos naturais e sustentáveis
+           Tudo em maquiagem e skincare para sua rotina de beleza!
           </p>
         </div>
 
