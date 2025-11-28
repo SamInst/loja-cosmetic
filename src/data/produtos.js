@@ -1,7 +1,115 @@
 // src/data/produtos.js
+const sabonete_facial = "/images/sabonete-facial.jpeg";
+const serum = "/images/serum.jpeg";
+const bruma1 = "/images/bruma1.jpeg";
+const bruma2 = "/images/bruma2.jpeg";
+const basebrunatavares1 = "/images/basebrunatavares1.jpeg";
+const basebrunatavares2 = "/images/basebrunatavares2.jpeg";
+const corretivo1 = "/images/corretivo1.jpeg";
+const corretivo2 = "/images/corretivo2.jpeg";
+const corretivo3 = "/images/corretivo3.jpeg";
+const contorno1 = "/images/contorno1.jpeg";
+const contornoloverain = "/images/contornoloverain.jpeg";
+const contornoloverain2 = "/images/contornoloverain2.jpeg";
+const quartetoblush = "/images/quartetoblush.jpeg";
+const quartetoblush2 = "/images/quartetoblush2.jpeg";
+const quartetoblush3 = "/images/quartetoblush3.jpeg";
+const quartetoblush4 = "/images/quartetoblush4.jpeg";
+const quartetoblush5 = "/images/quartetoblush5.jpeg";
+const quartetoblush6 = "/images/quartetoblush6.jpeg";
+const blushfabella = "/images/blushfabella.jpeg";
+const blushfabella2 = "/images/blushfabella2.jpeg";
+const blushcarlasecret = "/images/blushcarlasecret.jpeg";
+const blushcarlasecret2 = "/images/blushcarlasecret2.jpeg";
+const iluminadorfabella = "/images/iluminadorfabella.jpeg";
+const iluminadorfabella2 = "/images/iluminadorfabella2.jpeg";
+const canetasobrancelha = "/images/canetasobrancelha.jpeg";
+const canetasobrancelha2 = "/images/canetasobrancelha2.jpeg";
+const palhetasobrancelha = "/images/palhetasobrancelha.jpeg";
+const gelsobrancelhachandelle = "/images/gelsobrancelhachandelle.jpeg";
+const gelsobrancelhachandelle2 = "/images/gelsobrancelhachandelle2.jpeg";
+const gelsobrancelhamiamake = "/images/gelsobrancelhamiamake.jpeg";
+const gelsobrancelhamiamake2 = "/images/gelsobrancelhamiamake2.jpeg";
+const gelsobrancelharubyrose = "/images/gelsobrancelharubyrose.jpeg";
+const gelsobrancelharubyrose2 = "/images/gelsobrancelharubyrose2.jpeg";
+const paletasombrasarah = "/images/paletasombrasarah.jpeg";
+const paletasombrasarah2 = "/images/paletasombrasarah2.jpeg";
+const delineadorplayboy = "/images/delineadorplayboy.jpeg";
+const delineadorplayboy2 = "/images/delineadorplayboy2.jpeg";
 
-const IMAGEM_PADRAO = "/images/hidratante-corporal-paixao.jpg";
-const IMAGEM_PADRAO_2 = "/images/logo.jpg";
+const colacilios = "/images/colacilios.jpeg";
+const rimelfabella = "/images/rimelfabella.jpeg";
+const rimelfabella2 = "/images/rimelfabella2.jpeg";
+const rimelfabella3 = "/images/rimelfabella3.jpeg";
+const rimelmelu = "/images/rimelmelu.jpeg";
+const rimelmelu2 = "/images/rimelmelu2.jpeg";
+const lapisolho = "/images/lapisolho.jpeg";
+const lapisboca = "/images/lapisboca.jpeg";
+const batomlipcombo = "/images/batomlipcombo.jpeg";
+const glossbrilho = "/images/glossbrilho.jpeg";
+const glossbrilho2 = "/images/glossbrilho2.jpeg";
+const glossmaxlove = "/images/glossmaxlove.jpeg";
+const glossmaxlove2 = "/images/glossmaxlove2.jpeg";
+const esponjag = "/images/esponjag.jpeg";
+const esponjag2 = "/images/esponjag2.jpeg";
+const pincelbolsa = "/images/pincelbolsa.jpeg";
+const pincelbolsa2 = "/images/pincelbolsa2.jpeg";
+const pincelbolsa3 = "/images/pincelbolsa3.jpeg";
+const miniesponja = "/images/miniesponja.jpeg";
+const miniesponja2 = "/images/miniesponja2.jpeg";
+const esponjapo = "/images/esponjapo.jpeg";
+const esponjapo2 = "/images/esponjapo2.jpeg";
+const miniesponjapo = "/images/miniesponjapo.jpeg";
+const miniesponjapo2 = "/images/miniesponjapo2.jpeg";
+const miniesponjapo3 = "/images/miniesponjapo3.jpeg";
+const kitpincel = "/images/kitpincel.jpeg";
+const kitpincel2 = "/images/kitpincel2.jpeg";
+const kitpincel3 = "/images/kitpincel3.jpeg";
+const kitpincel4 = "/images/kitpincel4.jpeg";
+const kitpincel5 = "/images/kitpincel5.jpeg";
+const kitpincel6 = "/images/kitpincel6.jpeg";
+const faixa = "/images/faixa.jpeg";
+const faixa2 = "/images/faixa2.jpeg";
+const hidratantecorporal = "/images/hidratantecorporal.jpeg";
+const hidratantecorporal2 = "/images/hidratantecorporal2.jpeg";
+const hidratantecorporal3 = "/images/hidratantecorporal3.jpeg";
+const esfoliante = "/images/esfoliante.jpeg";
+const demaquilante = "/images/demaquilante.jpeg";
+const posolto = "/images/posolto.jpeg";
+const posolto2 = "/images/posolto2.jpeg";
+const porosa = "/images/porosa.jpeg";
+const porosa2 = "/images/porosa2.jpeg";
+const pobananavivai = "/images/pobananavivai.jpeg";
+const pobananavivai2 = "/images/pobananavivai2.jpeg";
+const pobananafenzza = "/images/pobananafenzza.jpeg";
+const pobananafenzza2 = "/images/pobananafenzza2.jpeg";
+const palhetasombradisklu = "/images/palhetasombradisklu.jpeg";
+const palhetasombradisklu2 = "/images/palhetasombradisklu2.jpeg";
+const paletasombradanny = "/images/paletasombradanny.jpeg";
+const paletasombradanny2 = "/images/paletasombradanny2.jpeg";
+// const bruma3 = "/images/bruma3.jpeg";
+// const bruma3 = "/images/bruma3.jpeg";
+// const bruma3 = "/images/bruma3.jpeg";
+// const bruma3 = "/images/bruma3.jpeg";
+// const bruma3 = "/images/bruma3.jpeg";
+// const bruma3 = "/images/bruma3.jpeg";
+// const bruma3 = "/images/bruma3.jpeg";
+// const bruma3 = "/images/bruma3.jpeg";
+// const bruma3 = "/images/bruma3.jpeg";
+// const bruma3 = "/images/bruma3.jpeg";
+
+// const bruma3 = "/images/bruma3.jpeg";
+// const bruma3 = "/images/bruma3.jpeg";
+// const bruma3 = "/images/bruma3.jpeg";
+// const bruma3 = "/images/bruma3.jpeg";
+// const bruma3 = "/images/bruma3.jpeg";
+// const bruma3 = "/images/bruma3.jpeg";
+// const bruma3 = "/images/bruma3.jpeg";
+// const bruma3 = "/images/bruma3.jpeg";
+
+
+
+
 
 export const produtos = [
   {
@@ -13,7 +121,7 @@ export const produtos = [
     promocao: false,
     descricao:
       "Sabonete facial suave que remove impurezas, controla a oleosidade e deixa a pele limpa, fresca e macia desde o primeiro uso.",
-    imagens: [IMAGEM_PADRAO_2, IMAGEM_PADRAO],
+    imagens: [sabonete_facial],
   },
   {
     id: 2,
@@ -24,7 +132,7 @@ export const produtos = [
     promocao: false,
     descricao:
       "Sérum facial leve e de rápida absorção, que hidrata profundamente, melhora a textura da pele e deixa um brilho saudável imediato.",
-    imagens: [IMAGEM_PADRAO],
+    imagens: [serum],
   },
   {
     id: 3,
@@ -35,7 +143,7 @@ export const produtos = [
     promocao: false,
     descricao:
       "Bruma facial refrescante que hidrata, fixa a maquiagem e devolve o viço natural da pele ao longo do dia.",
-    imagens: [IMAGEM_PADRAO],
+    imagens: [bruma1, bruma2],
   },
   {
     id: 4,
@@ -46,7 +154,7 @@ export const produtos = [
     promocao: false,
     descricao:
       "Cobertura média, acabamento natural e textura leve que se adapta à pele, garantindo duração e uniformidade ao longo do dia.",
-    imagens: [IMAGEM_PADRAO],
+    imagens: [basebrunatavares1, basebrunatavares2],
   },
   {
     id: 5,
@@ -57,7 +165,7 @@ export const produtos = [
     promocao: false,
     descricao:
       "Alta cobertura, textura cremosa e fácil de espalhar, disfarçando olheiras e imperfeições sem pesar.",
-    imagens: [IMAGEM_PADRAO],
+    imagens: [corretivo1, corretivo2, corretivo3],
   },
   {
     id: 6,
@@ -68,7 +176,7 @@ export const produtos = [
     promocao: false,
     descricao:
       "Textura cremosa, fácil de esfumar e ideal para definir o rosto com acabamento natural e duradouro.",
-    imagens: [IMAGEM_PADRAO],
+    imagens: [contorno1],
   },
   {
     id: 7,
@@ -79,7 +187,7 @@ export const produtos = [
     promocao: false,
     descricao:
       "Fórmula cremosa, super fácil de espalhar, garantindo definição natural e acabamento uniforme.",
-    imagens: [IMAGEM_PADRAO],
+    imagens: [contornoloverain, contornoloverain2],
   },
   {
     id: 8,
@@ -90,7 +198,7 @@ export const produtos = [
     promocao: false,
     descricao:
       "Quatro tons versáteis com textura aveludada, que entregam cor suave, esfumado fácil e um toque de luminosidade na pele.",
-    imagens: [IMAGEM_PADRAO],
+    imagens: [quartetoblush, quartetoblush2, quartetoblush3, quartetoblush4, quartetoblush5, quartetoblush6],
   },
   {
     id: 9,
@@ -101,7 +209,7 @@ export const produtos = [
     promocao: false,
     descricao:
       "Textura leve, fácil de espalhar, entrega cor natural e efeito saudável que dura o dia todo.",
-    imagens: [IMAGEM_PADRAO],
+    imagens: [blushfabella, blushfabella2],
   },
   {
     id: 10,
@@ -112,7 +220,7 @@ export const produtos = [
     promocao: false,
     descricao:
       "Blush e contorno de textura cremosa, fáceis de esfumar e com tons versáteis para um acabamento natural e bem definido.",
-    imagens: [IMAGEM_PADRAO],
+    imagens: [blushcarlasecret, blushcarlasecret2],
   },
   {
     id: 11,
@@ -123,7 +231,7 @@ export const produtos = [
     promocao: false,
     descricao:
       "Textura leve e luminosa que realça a pele com brilho radiante e natural.",
-    imagens: [IMAGEM_PADRAO],
+    imagens: [iluminadorfabella, iluminadorfabella2],
   },
   {
     id: 12,
@@ -134,7 +242,7 @@ export const produtos = [
     promocao: false,
     descricao:
       "Ponta precisa que preenche fio a fio, garantindo definição natural e longa duração.",
-    imagens: [IMAGEM_PADRAO],
+    imagens: [canetasobrancelha, canetasobrancelha2],
   },
 
   // OLHOS E SOBRANCELHAS
@@ -147,18 +255,7 @@ export const produtos = [
     promocao: false,
     descricao:
       "Tons versáteis, textura macia e fácil de aplicar para corrigir, definir e preencher com naturalidade.",
-    imagens: [IMAGEM_PADRAO],
-  },
-  {
-    id: 14,
-    categoria: "OLHOS E SOBRANCELHAS",
-    nome: "Caneta de sobrancelha",
-    preco: 20.0,
-    precoAntigo: 0,
-    promocao: false,
-    descricao:
-      "Ponta precisa que preenche fio a fio, garantindo definição natural e longa duração.",
-    imagens: [IMAGEM_PADRAO],
+    imagens: [palhetasobrancelha],
   },
   {
     id: 15,
@@ -168,7 +265,7 @@ export const produtos = [
     precoAntigo: 0,
     promocao: false,
     descricao: "Fixa, modela e mantém os fios no lugar com efeito natural e duradouro.",
-    imagens: [IMAGEM_PADRAO],
+    imagens: [gelsobrancelhachandelle, gelsobrancelhachandelle2],
   },
   {
     id: 16,
@@ -179,7 +276,7 @@ export const produtos = [
     promocao: false,
     descricao:
       "Modela, fixa e define os fios, garantindo sobrancelhas alinhadas e naturalmente bonitas.",
-    imagens: [IMAGEM_PADRAO],
+    imagens: [gelsobrancelhamiamake, gelsobrancelhamiamake2],
   },
   {
     id: 17,
@@ -190,7 +287,7 @@ export const produtos = [
     promocao: false,
     descricao:
       "Fixa e define os fios, proporcionando sobrancelhas alinhadas com acabamento natural.",
-    imagens: [IMAGEM_PADRAO],
+    imagens: [gelsobrancelharubyrose, gelsobrancelharubyrose2],
   },
   {
     id: 18,
@@ -201,7 +298,7 @@ export const produtos = [
     promocao: false,
     descricao:
       "Cores pigmentadas, textura macia e fácil de esfumar, perfeita para criar desde looks suaves até marcantes.",
-    imagens: [IMAGEM_PADRAO],
+    imagens: [paletasombrasarah, paletasombrasarah2],
   },
   {
     id: 19,
@@ -212,7 +309,7 @@ export const produtos = [
     promocao: false,
     descricao:
       "Alta pigmentação, secagem rápida e ponta precisa para traços definidos e duradouros.",
-    imagens: [IMAGEM_PADRAO],
+    imagens: [delineadorplayboy, delineadorplayboy2],
   },
   {
     id: 20,
@@ -222,7 +319,7 @@ export const produtos = [
     precoAntigo: 0,
     promocao: false,
     descricao: "Secagem rápida e alta fixação para garantir aplicação segura e longa duração.",
-    imagens: [IMAGEM_PADRAO],
+    imagens: [colacilios],
   },
   {
     id: 21,
@@ -233,7 +330,7 @@ export const produtos = [
     promocao: false,
     descricao:
       "Alonga, define e dá volume aos cílios, garantindo olhar marcante e longa duração.",
-    imagens: [IMAGEM_PADRAO],
+    imagens: [rimelfabella, rimelfabella2, rimelfabella3],
   },
   {
     id: 22,
@@ -244,7 +341,7 @@ export const produtos = [
     promocao: false,
     descricao:
       "Alonga e dá volume, é à prova d’água e não mancha, garantindo cílios impecáveis o dia todo.",
-    imagens: [IMAGEM_PADRAO],
+    imagens: [rimelmelu, rimelmelu2],
   },
   {
     id: 23,
@@ -254,7 +351,7 @@ export const produtos = [
     precoAntigo: 0,
     promocao: false,
     descricao: "Textura macia e pigmentação intensa para um traço preciso e duradouro.",
-    imagens: [IMAGEM_PADRAO],
+    imagens: [lapisolho],
   },
 
   // LÁBIOS
@@ -267,7 +364,7 @@ export const produtos = [
     promocao: false,
     descricao:
       "Textura macia, alta pigmentação e precisão para contornar e definir os lábios com facilidade.",
-    imagens: [IMAGEM_PADRAO],
+    imagens: [lapisboca],
   },
   {
     id: 25,
@@ -278,7 +375,7 @@ export const produtos = [
     promocao: false,
     descricao:
       "Batom e lápis de contorno com textura macia, alta pigmentação e acabamento uniforme para lábios definidos e irresistíveis.",
-    imagens: [IMAGEM_PADRAO],
+    imagens: [batomlipcombo],
   },
   {
     id: 26,
@@ -289,7 +386,7 @@ export const produtos = [
     promocao: false,
     descricao:
       "Textura leve, efeito espelhado e acabamento iluminado que realça os lábios sem pesar.",
-    imagens: [IMAGEM_PADRAO],
+    imagens: [glossbrilho, glossbrilho2],
   },
   {
     id: 27,
@@ -300,20 +397,20 @@ export const produtos = [
     promocao: false,
     descricao:
       "Textura leve e confortável, proporcionando lábios hidratados com acabamento natural.",
-    imagens: [IMAGEM_PADRAO],
+    imagens: [glossmaxlove, glossmaxlove2],
   },
 
   // ACESSÓRIOS
   {
     id: 28,
     categoria: "ACESSÓRIOS",
-    nome: "Esponja",
+    nome: "Esponja G",
     preco: 5.0,
     precoAntigo: 0,
     promocao: false,
     descricao:
       "Macia e de alta precisão, ideal para aplicar e espalhar a maquiagem com acabamento uniforme e natural.",
-    imagens: [IMAGEM_PADRAO],
+    imagens: [esponjag, esponjag2],
   },
   {
     id: 29,
@@ -324,7 +421,7 @@ export const produtos = [
     promocao: false,
     descricao:
       "Compacto e prático, com pincéis essenciais para retoques rápidos e acabamento perfeito em qualquer lugar.",
-    imagens: [IMAGEM_PADRAO],
+    imagens: [pincelbolsa, pincelbolsa2, pincelbolsa3],
   },
   {
     id: 30,
@@ -335,7 +432,7 @@ export const produtos = [
     promocao: false,
     descricao:
       "Macia e precisa, perfeita para aplicar corretivo e alcançar áreas menores com acabamento impecável.",
-    imagens: [IMAGEM_PADRAO],
+    imagens: [miniesponja, miniesponja2],
   },
   {
     id: 31,
@@ -346,7 +443,7 @@ export const produtos = [
     promocao: false,
     descricao:
       "Macia e aveludada, ideal para aplicar e selar a maquiagem com acabamento suave e uniforme.",
-    imagens: [IMAGEM_PADRAO],
+    imagens: [esponjapo, esponjapo2],
   },
   {
     id: 32,
@@ -357,7 +454,7 @@ export const produtos = [
     promocao: false,
     descricao:
       "Aveludada e precisa, perfeita para selar áreas menores com acabamento suave e impecável.",
-    imagens: [IMAGEM_PADRAO],
+    imagens: [miniesponjapo, miniesponjapo2, miniesponjapo3],
   },
   {
     id: 33,
@@ -368,7 +465,7 @@ export const produtos = [
     promocao: false,
     descricao:
       "Cerdas macias e alta precisão para aplicar, esfumar e finalizar a maquiagem com acabamento profissional.",
-    imagens: [IMAGEM_PADRAO],
+    imagens: [kitpincel, kitpincel2, kitpincel3, kitpincel4, kitpincel5, kitpincel6],
   },
   {
     id: 34,
@@ -379,7 +476,7 @@ export const produtos = [
     promocao: false,
     descricao:
       "Macia e ajustável, mantém o cabelo no lugar durante a maquiagem e cuidados com a pele.",
-    imagens: [IMAGEM_PADRAO],
+    imagens: [faixa, faixa2],
   },
 
   // CORPORAL
@@ -392,7 +489,7 @@ export const produtos = [
     promocao: false,
     descricao:
       "Textura leve, rápida absorção e hidratação prolongada que deixa a pele macia e perfumada.",
-    imagens: [IMAGEM_PADRAO],
+    imagens: [hidratantecorporal, hidratantecorporal2, hidratantecorporal3],
   },
   {
     id: 36,
@@ -403,7 +500,7 @@ export const produtos = [
     promocao: false,
     descricao:
       "Remove células mortas, deixa a pele mais lisa e macia, renovada desde a primeira aplicação.",
-    imagens: [IMAGEM_PADRAO],
+    imagens: [esfoliante],
   },
   {
     id: 37,
@@ -414,6 +511,74 @@ export const produtos = [
     promocao: false,
     descricao:
       "Remove a maquiagem com facilidade, limpa suavemente e deixa a pele fresca e macia.",
-    imagens: [IMAGEM_PADRAO],
+    imagens: [demaquilante],
+  },
+  {
+    id: 38,
+    categoria: "MAKE",
+    nome: "Pó solto",
+    preco: 20.0,
+    precoAntigo: 0,
+    promocao: false,
+    descricao:
+      "Textura fina que sela a maquiagem, controla a oleosidade e deixa a pele com acabamento suave e aveludado.",
+    imagens: [posolto, posolto2],
+  },
+
+  {
+    id: 39,
+    categoria: "MAKE",
+    nome: "Pó Rosa",
+    preco: 20.0,
+    precoAntigo: 0,
+    promocao: false,
+    descricao:
+      "Textura fina que ilumina suavemente, sela a maquiagem e deixa a pele com acabamento aveludado e uniforme.",
+    imagens: [porosa, porosa2],
+  },
+  {
+    id: 40,
+    categoria: "MAKE",
+    nome: "Pó Banana Vivai",
+    preco: 20.0,
+    precoAntigo: 0,
+    promocao: false,
+    descricao:
+      "Textura fina que sela a maquiagem, controla a oleosidade e ilumina a pele com acabamento suave e uniforme.",
+    imagens: [pobananavivai, pobananavivai2],
+  },
+  {
+    id: 41,
+    categoria: "MAKE",
+    nome: "Pó Banana FENZZA",
+    preco: 20.0,
+    precoAntigo: 0,
+    promocao: false,
+    descricao:
+      "Textura fina que sela a maquiagem, controla a oleosidade e ilumina a pele com acabamento suave e uniforme.",
+    imagens: [pobananafenzza, pobananafenzza2],
+  },
+
+  {
+    id: 42,
+    categoria: "MAKE",
+    nome: "Palheta de sombra Isys",
+    preco: 20.0,
+    precoAntigo: 0,
+    promocao: false,
+    descricao:
+      "Combina tons opacos e cintilantes, alta pigmentação e textura macia para criar looks versáteis do básico ao glam",
+    imagens: [palhetasombradisklu, palhetasombradisklu2],
+  },
+  {
+    id: 43,
+    categoria: "MAKE",
+    nome: "Palheta de sombra DANNY",
+    preco: 20.0,
+    precoAntigo: 0,
+    promocao: false,
+    descricao:
+      "Combina tons opacos e cintilantes, alta pigmentação e textura macia para criar looks versáteis do básico ao glam",
+    imagens: [paletasombradanny, paletasombradanny2],
   },
 ];

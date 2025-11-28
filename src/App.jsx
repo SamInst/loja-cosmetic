@@ -9,6 +9,18 @@ import {
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import { produtos } from "./data/produtos";
 
+const FORMA_PAGAMENTO = {
+  PIX: "PIX",
+  CARTAO_CREDITO:  "CARTAO_CREDITO",
+  CARTAO_DEBITO:   "CARTAO_DEBITO",
+};
+
+const FORMA_PAGAMENTO_LABEL = {
+  [FORMA_PAGAMENTO.PIX]: "Pix",
+  [FORMA_PAGAMENTO.CARTAO_CREDITO]: "Cartão de crédito",
+  [FORMA_PAGAMENTO.CARTAO_DEBITO]: "Cartão de débito",
+};
+
 export default function App() {
   const [carrinho, setCarrinho] = useState([]);
   const [mostrarCarrinho, setMostrarCarrinho] = useState(false);
@@ -23,6 +35,10 @@ export default function App() {
   // (1) animação fly-to-cart
   const imgRefs = useRef({});
   const [cartBump, setCartBump] = useState(false);
+
+  // (NEW) forma de pagamento + observação
+  const [formaPagamento, setFormaPagamento] = useState("");
+  const [observacao, setObservacao] = useState("");
 
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -110,7 +126,9 @@ export default function App() {
         .map((item) => {
           if (item.id === id) {
             const novaQuantidade = item.quantidade + delta;
-            return novaQuantidade > 0 ? { ...item, quantidade: novaQuantidade } : item;
+            return novaQuantidade > 0
+              ? { ...item, quantidade: novaQuantidade }
+              : item;
           }
           return item;
         })
@@ -119,7 +137,11 @@ export default function App() {
   };
 
   const totalCarrinho = useMemo(
-    () => carrinho.reduce((total, item) => total + item.preco * item.quantidade, 0),
+    () =>
+      carrinho.reduce(
+        (total, item) => total + item.preco * item.quantidade,
+        0
+      ),
     [carrinho]
   );
 
@@ -149,8 +171,21 @@ export default function App() {
       alert("Seu carrinho está vazio!");
       return;
     }
+    if (!formaPagamento) {
+      alert("Selecione a forma de pagamento para continuar.");
+      return;
+    }
+
     let mensagem = "*🛍️ Novo Pedido - CB Store*\n\n";
-    mensagem += "*Produtos:*\n";
+    mensagem += "*Forma de pagamento:*\n";
+    mensagem += `- ${FORMA_PAGAMENTO_LABEL[formaPagamento] || formaPagamento}\n`;
+
+    const obs = (observacao || "").trim();
+    if (obs) {
+      mensagem += `\n*Observação:*\n${obs}\n`;
+    }
+
+    mensagem += "\n*Produtos:*\n";
 
     carrinho.forEach((item, index) => {
       mensagem += `\n${index + 1}. *${item.nome}*\n`;
@@ -160,7 +195,7 @@ export default function App() {
     });
 
     mensagem += `\n*Total do Pedido: R$ ${totalCarrinho.toFixed(2)}*\n\n`;
-    mensagem += "_Aguardo confirmação! 😎_";
+    mensagem += "Seu pedido está quase lá!🤎\n\nAguardando: o resumo do meu pedido e as informações de pagamento!";
 
     const telefone = "559870187296";
     const url = `https://wa.me/${telefone}?text=${encodeURIComponent(mensagem)}`;
@@ -337,6 +372,8 @@ export default function App() {
     );
   };
 
+  const formaPagamentoSelecionada = Boolean(formaPagamento);
+
   return (
     <div
       style={{
@@ -349,7 +386,6 @@ export default function App() {
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 
-        /* (2) MOBILE: 2 colunas (4+ produtos visíveis) + cards mais compactos */
         .products-grid {
           display: grid;
           grid-template-columns: repeat(3, minmax(250px, 1fr));
@@ -443,7 +479,6 @@ export default function App() {
           justify-content:center;
         }
 
-        /* cart bump */
         .cart-bump {
           animation: cartBump 280ms ease;
         }
@@ -492,7 +527,7 @@ export default function App() {
               fontWeight: "500",
             }}
           >
-           Tudo em maquiagem e skincare para sua rotina de beleza!
+            Tudo em maquiagem e skincare para sua rotina de beleza!
           </p>
         </div>
 
@@ -665,11 +700,13 @@ export default function App() {
                     }}
                     onMouseEnter={(e) => {
                       e.currentTarget.style.transform = "translateY(-5px)";
-                      e.currentTarget.style.boxShadow = "0 8px 25px rgba(0,0,0,0.15)";
+                      e.currentTarget.style.boxShadow =
+                        "0 8px 25px rgba(0,0,0,0.15)";
                     }}
                     onMouseLeave={(e) => {
                       e.currentTarget.style.transform = "translateY(0)";
-                      e.currentTarget.style.boxShadow = "0 4px 15px rgba(0,0,0,0.1)";
+                      e.currentTarget.style.boxShadow =
+                        "0 4px 15px rgba(0,0,0,0.1)";
                     }}
                   >
                     {/* IMAGEM COM SLIDER (SEM DEGRADÊ) */}
@@ -937,8 +974,12 @@ export default function App() {
                             transition: "background 0.3s",
                             whiteSpace: "nowrap",
                           }}
-                          onMouseEnter={(e) => (e.currentTarget.style.background = "#38a169")}
-                          onMouseLeave={(e) => (e.currentTarget.style.background = "#48bb78")}
+                          onMouseEnter={(e) =>
+                            (e.currentTarget.style.background = "#38a169")
+                          }
+                          onMouseLeave={(e) =>
+                            (e.currentTarget.style.background = "#48bb78")
+                          }
                         >
                           Adicionar
                         </button>
@@ -1198,6 +1239,120 @@ export default function App() {
                     boxShadow: "0 4px 15px rgba(0,0,0,0.1)",
                   }}
                 >
+                  {/* (NEW) forma de pagamento + observação */}
+                  <div
+                    style={{
+                      marginBottom: "16px",
+                      border: "1px solid #e2e8f0",
+                      borderRadius: "12px",
+                      padding: "14px",
+                      display: "flex",
+                      flexDirection: "column",
+                      gap: "10px",
+                    }}
+                  >
+                    <div
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "space-between",
+                        gap: 12,
+                        flexWrap: "wrap",
+                      }}
+                    >
+                      <span
+                        style={{
+                          fontSize: "16px",
+                          fontWeight: "700",
+                          color: "#2d3748",
+                        }}
+                      >
+                        Forma de pagamento
+                      </span>
+
+                      {!formaPagamentoSelecionada ? (
+                        <span
+                          style={{
+                            fontSize: "12px",
+                            fontWeight: "700",
+                            color: "#c53030",
+                            background: "#fed7d7",
+                            padding: "6px 10px",
+                            borderRadius: 999,
+                          }}
+                        >
+                          Selecione para liberar o envio
+                        </span>
+                      ) : (
+                        <span
+                          style={{
+                            fontSize: "12px",
+                            fontWeight: "700",
+                            color: "#22543d",
+                            background: "#c6f6d5",
+                            padding: "6px 10px",
+                            borderRadius: 999,
+                          }}
+                        >
+                          Selecionado:{" "}
+                          {FORMA_PAGAMENTO_LABEL[formaPagamento] || formaPagamento}
+                        </span>
+                      )}
+                    </div>
+
+                    <select
+                      value={formaPagamento}
+                      onChange={(e) => setFormaPagamento(e.target.value)}
+                      style={{
+                        width: "100%",
+                        padding: "12px 14px",
+                        borderRadius: "10px",
+                        border: "2px solid",
+                        borderColor: formaPagamentoSelecionada ? "#c6f6d5" : "#fed7d7",
+                        outline: "none",
+                        fontSize: "15px",
+                        fontWeight: 600,
+                        color: "#2d3748",
+                        background: "#fff",
+                      }}
+                    >
+                      <option value="">Selecione...</option>
+                      {Object.values(FORMA_PAGAMENTO).map((v) => (
+                        <option key={v} value={v}>
+                          {FORMA_PAGAMENTO_LABEL[v] || v}
+                        </option>
+                      ))}
+                    </select>
+
+                    {/* (NEW) observação */}
+                    <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
+                      <span style={{ fontSize: 13, fontWeight: 700, color: "#2d3748" }}>
+                        Observação (opcional)
+                      </span>
+                      <textarea
+                        value={observacao}
+                        onChange={(e) => setObservacao(e.target.value)}
+                        placeholder="Ex: entregar após 18h, trocar cor, informar troco para dinheiro..."
+                        rows={3}
+                        style={{
+                          width: "100%",
+                          resize: "vertical",
+                          padding: "12px 14px",
+                          borderRadius: "10px",
+                          border: "2px solid #e2e8f0",
+                          outline: "none",
+                          fontSize: "14px",
+                          lineHeight: 1.4,
+                          color: "#2d3748",
+                          background: "#fff",
+                          boxSizing: "border-box",
+                        }}
+                        onFocus={(e) => (e.currentTarget.style.borderColor = "#667eea")}
+                        onBlur={(e) => (e.currentTarget.style.borderColor = "#e2e8f0")}
+                      />
+                    </div>
+                  </div>
+
                   <div
                     style={{
                       display: "flex",
@@ -1254,22 +1409,25 @@ export default function App() {
                       Continuar comprando
                     </button>
 
-                    <button
-                      onClick={finalizarCompra}
-                      style={{
-                        flex: 2,
-                        background: "#48bb78",
-                        color: "white",
-                        border: "none",
-                        padding: "15px",
-                        borderRadius: "8px",
-                        cursor: "pointer",
-                        fontSize: "16px",
-                        fontWeight: "600",
-                      }}
-                    >
-                      📱 Enviar Pedido por WhatsApp
-                    </button>
+                    {/* ocultar até selecionar */}
+                    {formaPagamentoSelecionada ? (
+                      <button
+                        onClick={finalizarCompra}
+                        style={{
+                          flex: 2,
+                          background: "#48bb78",
+                          color: "white",
+                          border: "none",
+                          padding: "15px",
+                          borderRadius: "8px",
+                          cursor: "pointer",
+                          fontSize: "16px",
+                          fontWeight: "600",
+                        }}
+                      >
+                        📱 Enviar Pedido por WhatsApp
+                      </button>
+                    ) : null}
                   </div>
                 </div>
               </>
