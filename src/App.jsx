@@ -11,14 +11,24 @@ import { produtos } from "./data/produtos";
 
 const FORMA_PAGAMENTO = {
   PIX: "PIX",
-  CARTAO_CREDITO:  "CARTAO_CREDITO",
-  CARTAO_DEBITO:   "CARTAO_DEBITO",
+  CARTAO_CREDITO: "CARTAO_CREDITO",
+  CARTAO_DEBITO: "CARTAO_DEBITO",
 };
 
 const FORMA_PAGAMENTO_LABEL = {
   [FORMA_PAGAMENTO.PIX]: "Pix",
   [FORMA_PAGAMENTO.CARTAO_CREDITO]: "Cartão de crédito",
   [FORMA_PAGAMENTO.CARTAO_DEBITO]: "Cartão de débito",
+};
+
+const CIDADE = {
+  CAJARI: "CAJARI",
+  SAO_LUIS: "SAO_LUIS",
+};
+
+const CIDADE_LABEL = {
+  [CIDADE.CAJARI]: "Cajari",
+  [CIDADE.SAO_LUIS]: "São Luís",
 };
 
 export default function App() {
@@ -39,6 +49,10 @@ export default function App() {
   // (NEW) forma de pagamento + observação
   const [formaPagamento, setFormaPagamento] = useState("");
   const [observacao, setObservacao] = useState("");
+
+  // (NEW) nome + cidade
+  const [nomeCliente, setNomeCliente] = useState("");
+  const [cidade, setCidade] = useState("");
 
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -171,12 +185,25 @@ export default function App() {
       alert("Seu carrinho está vazio!");
       return;
     }
+    if (!nomeCliente.trim()) {
+      alert("Informe seu nome para continuar.");
+      return;
+    }
+    if (!cidade) {
+      alert("Selecione a cidade para continuar.");
+      return;
+    }
     if (!formaPagamento) {
       alert("Selecione a forma de pagamento para continuar.");
       return;
     }
 
     let mensagem = "*🛍️ Novo Pedido - CB Store*\n\n";
+
+    mensagem += "*Cliente:*\n";
+    mensagem += `- Nome: ${nomeCliente.trim()}\n`;
+    mensagem += `- Cidade: ${CIDADE_LABEL[cidade] || cidade}\n\n`;
+
     mensagem += "*Forma de pagamento:*\n";
     mensagem += `- ${FORMA_PAGAMENTO_LABEL[formaPagamento] || formaPagamento}\n`;
 
@@ -195,7 +222,8 @@ export default function App() {
     });
 
     mensagem += `\n*Total do Pedido: R$ ${totalCarrinho.toFixed(2)}*\n\n`;
-    mensagem += "Seu pedido está quase lá!🤎\n\nAguardando: o resumo do meu pedido e as informações de pagamento!";
+    mensagem +=
+      "Seu pedido está quase lá!\n\nAguardando para fazer pagamento!";
 
     const telefone = "559870187296";
     const url = `https://wa.me/${telefone}?text=${encodeURIComponent(mensagem)}`;
@@ -233,12 +261,17 @@ export default function App() {
 
     return (
       <div className="modal-bg" onClick={() => setImagemModal(null)}>
-        <div className="modal-img-container" onClick={(e) => e.stopPropagation()}>
-          <button className="modal-close-btn" onClick={() => setImagemModal(null)}>
+        <div
+          className="modal-img-container"
+          onClick={(e) => e.stopPropagation()}
+        >
+          <button
+            className="modal-close-btn"
+            onClick={() => setImagemModal(null)}
+          >
             &times;
           </button>
 
-          {/* SLIDER NO MODAL */}
           <div
             style={{
               position: "relative",
@@ -332,7 +365,6 @@ export default function App() {
                   <ChevronRight size={20} />
                 </button>
 
-                {/* bolinhas de indicação no modal */}
                 <div
                   style={{
                     position: "absolute",
@@ -401,36 +433,16 @@ export default function App() {
             grid-template-columns: repeat(2, minmax(150px, 1fr));
             gap: 12px;
           }
-          .produto-media {
-            height: 160px !important;
-          }
-          .produto-body {
-            padding: 12px !important;
-          }
-          .produto-desc {
-            font-size: 12px !important;
-            -webkit-line-clamp: 2 !important;
-          }
-          .produto-price {
-            font-size: 16px !important;
-          }
-          .add-btn {
-            padding: 8px 12px !important;
-            font-size: 13px !important;
-          }
-          .categoria-pill {
-            font-size: 10px !important;
-            padding: 3px 10px !important;
-          }
+          .produto-media { height: 160px !important; }
+          .produto-body { padding: 12px !important; }
+          .produto-desc { font-size: 12px !important; -webkit-line-clamp: 2 !important; }
+          .produto-price { font-size: 16px !important; }
+          .add-btn { padding: 8px 12px !important; font-size: 13px !important; }
+          .categoria-pill { font-size: 10px !important; padding: 3px 10px !important; }
         }
         @media (max-width: 380px) {
-          .products-grid {
-            grid-template-columns: repeat(2, minmax(140px, 1fr));
-            gap: 10px;
-          }
-          .produto-media {
-            height: 145px !important;
-          }
+          .products-grid { grid-template-columns: repeat(2, minmax(140px, 1fr)); gap: 10px; }
+          .produto-media { height: 145px !important; }
         }
 
         .produto-desc {
@@ -479,9 +491,7 @@ export default function App() {
           justify-content:center;
         }
 
-        .cart-bump {
-          animation: cartBump 280ms ease;
-        }
+        .cart-bump { animation: cartBump 280ms ease; }
         @keyframes cartBump {
           0% { transform: scale(1); }
           45% { transform: scale(1.06); }
@@ -491,7 +501,6 @@ export default function App() {
 
       {renderModal()}
 
-      {/* Header */}
       <header
         style={{
           background: "white",
@@ -595,7 +604,6 @@ export default function App() {
           boxSizing: "border-box",
         }}
       >
-        {/* Produtos */}
         {!mostrarCarrinho ? (
           <>
             <h2
@@ -610,7 +618,6 @@ export default function App() {
               Nossos Produtos
             </h2>
 
-            {/* Filtros e Busca */}
             <div
               style={{
                 background: "white",
@@ -620,8 +627,9 @@ export default function App() {
                 boxShadow: "0 4px 15px rgba(0,0,0,0.1)",
               }}
             >
-              <div style={{ display: "flex", flexDirection: "column", gap: "15px" }}>
-                {/* Busca */}
+              <div
+                style={{ display: "flex", flexDirection: "column", gap: "15px" }}
+              >
                 <div style={{ width: "100%" }}>
                   <input
                     type="text"
@@ -643,7 +651,6 @@ export default function App() {
                   />
                 </div>
 
-                {/* Filtro de Categorias */}
                 <div style={{ display: "flex", gap: "10px", flexWrap: "wrap" }}>
                   {categorias.map((cat) => (
                     <button
@@ -667,8 +674,9 @@ export default function App() {
                 </div>
               </div>
 
-              {/* Contador de resultados */}
-              <p style={{ margin: "15px 0 0 0", color: "#718096", fontSize: "14px" }}>
+              <p
+                style={{ margin: "15px 0 0 0", color: "#718096", fontSize: "14px" }}
+              >
                 {produtosFiltrados.length}{" "}
                 {produtosFiltrados.length === 1
                   ? "produto encontrado"
@@ -709,7 +717,6 @@ export default function App() {
                         "0 4px 15px rgba(0,0,0,0.1)";
                     }}
                   >
-                    {/* IMAGEM COM SLIDER (SEM DEGRADÊ) */}
                     <div
                       className="produto-media"
                       style={{
@@ -724,7 +731,6 @@ export default function App() {
                       }}
                       onClick={() => abrirModalImagem(produto.id, indiceAtual)}
                     >
-                      {/* trilho do slider */}
                       <div
                         style={{
                           display: "flex",
@@ -762,7 +768,6 @@ export default function App() {
                         ))}
                       </div>
 
-                      {/* botões de navegação */}
                       {totalImagens > 1 && (
                         <>
                           <button
@@ -819,7 +824,6 @@ export default function App() {
                             <ChevronRight size={18} />
                           </button>
 
-                          {/* bolinhas de indicação */}
                           <div
                             style={{
                               position: "absolute",
@@ -855,7 +859,6 @@ export default function App() {
                       )}
                     </div>
 
-                    {/* CONTEÚDO DO CARD */}
                     <div
                       className="produto-body"
                       style={{
@@ -865,7 +868,6 @@ export default function App() {
                         flex: 1,
                       }}
                     >
-                      {/* categoria + nome */}
                       <div
                         style={{
                           display: "flex",
@@ -929,7 +931,13 @@ export default function App() {
                           flexWrap: "wrap",
                         }}
                       >
-                        <div style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
+                        <div
+                          style={{
+                            display: "flex",
+                            flexDirection: "column",
+                            gap: "4px",
+                          }}
+                        >
                           {produto.promocao && produto.precoAntigo ? (
                             <span
                               style={{
@@ -991,7 +999,6 @@ export default function App() {
             </div>
           </>
         ) : (
-          /* Carrinho */
           <div>
             <h2
               style={{
@@ -1016,7 +1023,13 @@ export default function App() {
                 }}
               >
                 <ShoppingCart size={64} color="#cbd5e0" />
-                <p style={{ marginTop: "20px", color: "#718096", fontSize: "18px" }}>
+                <p
+                  style={{
+                    marginTop: "20px",
+                    color: "#718096",
+                    fontSize: "18px",
+                  }}
+                >
                   Seu carrinho está vazio
                 </p>
                 <button
@@ -1038,7 +1051,9 @@ export default function App() {
               </div>
             ) : (
               <>
-                <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
+                <div
+                  style={{ display: "flex", flexDirection: "column", gap: "20px" }}
+                >
                   {carrinho.map((item) => (
                     <div
                       key={item.id}
@@ -1052,7 +1067,6 @@ export default function App() {
                         boxShadow: "0 4px 15px rgba(0,0,0,0.1)",
                       }}
                     >
-                      {/* TOPO: imagem + textos à esquerda, remover à direita */}
                       <div
                         style={{
                           display: "flex",
@@ -1062,7 +1076,6 @@ export default function App() {
                           minWidth: 0,
                         }}
                       >
-                        {/* bloco imagem + nome + preço */}
                         <div
                           style={{
                             display: "flex",
@@ -1132,7 +1145,6 @@ export default function App() {
                           </div>
                         </div>
 
-                        {/* botão remover à direita do nome/produto */}
                         <button
                           onClick={() => removerDoCarrinho(item.id)}
                           style={{
@@ -1153,7 +1165,6 @@ export default function App() {
                         </button>
                       </div>
 
-                      {/* LINHA INFERIOR: quantidade à esquerda, total à direita */}
                       <div
                         style={{
                           marginTop: "4px",
@@ -1166,8 +1177,9 @@ export default function App() {
                           flexWrap: "wrap",
                         }}
                       >
-                        {/* Esquerda: botões e quantidade */}
-                        <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+                        <div
+                          style={{ display: "flex", alignItems: "center", gap: "10px" }}
+                        >
                           <button
                             onClick={() => alterarQuantidade(item.id, -1)}
                             style={{
@@ -1214,7 +1226,6 @@ export default function App() {
                           </button>
                         </div>
 
-                        {/* Direita: total */}
                         <span
                           style={{
                             fontSize: "18px",
@@ -1239,6 +1250,77 @@ export default function App() {
                     boxShadow: "0 4px 15px rgba(0,0,0,0.1)",
                   }}
                 >
+                  {/* (NEW) nome + cidade */}
+                  <div
+                    style={{
+                      marginBottom: "16px",
+                      border: "1px solid #e2e8f0",
+                      borderRadius: "12px",
+                      padding: "14px",
+                      display: "flex",
+                      flexDirection: "column",
+                      gap: "10px",
+                    }}
+                  >
+                    <span style={{ fontSize: 16, fontWeight: 800, color: "#2d3748" }}>
+                      Dados do cliente
+                    </span>
+
+                    <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
+                      <span style={{ fontSize: 13, fontWeight: 700, color: "#2d3748" }}>
+                        Nome
+                      </span>
+                      <input
+                        value={nomeCliente}
+                        onChange={(e) => setNomeCliente(e.target.value)}
+                        placeholder="Digite seu nome..."
+                        style={{
+                          width: "100%",
+                          padding: "12px 14px",
+                          borderRadius: "10px",
+                          border: "2px solid #e2e8f0",
+                          outline: "none",
+                          fontSize: "14px",
+                          color: "#2d3748",
+                          background: "#fff",
+                          boxSizing: "border-box",
+                        }}
+                        onFocus={(e) => (e.currentTarget.style.borderColor = "#667eea")}
+                        onBlur={(e) => (e.currentTarget.style.borderColor = "#e2e8f0")}
+                      />
+                    </div>
+
+                    <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
+                      <span style={{ fontSize: 13, fontWeight: 700, color: "#2d3748" }}>
+                        Cidade
+                      </span>
+                      <select
+                        value={cidade}
+                        onChange={(e) => setCidade(e.target.value)}
+                        style={{
+                          width: "100%",
+                          padding: "12px 14px",
+                          borderRadius: "10px",
+                          border: "2px solid #e2e8f0",
+                          outline: "none",
+                          fontSize: "15px",
+                          fontWeight: 600,
+                          color: "#2d3748",
+                          background: "#fff",
+                        }}
+                        onFocus={(e) => (e.currentTarget.style.borderColor = "#667eea")}
+                        onBlur={(e) => (e.currentTarget.style.borderColor = "#e2e8f0")}
+                      >
+                        <option value="">Selecione...</option>
+                        {Object.values(CIDADE).map((v) => (
+                          <option key={v} value={v}>
+                            {CIDADE_LABEL[v] || v}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+                  </div>
+
                   {/* (NEW) forma de pagamento + observação */}
                   <div
                     style={{
@@ -1324,7 +1406,6 @@ export default function App() {
                       ))}
                     </select>
 
-                    {/* (NEW) observação */}
                     <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
                       <span style={{ fontSize: 13, fontWeight: 700, color: "#2d3748" }}>
                         Observação (opcional)
@@ -1409,7 +1490,6 @@ export default function App() {
                       Continuar comprando
                     </button>
 
-                    {/* ocultar até selecionar */}
                     {formaPagamentoSelecionada ? (
                       <button
                         onClick={finalizarCompra}
