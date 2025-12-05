@@ -1,4 +1,4 @@
-// src/data/produtos.js
+
 const sabonete_facial = "/images/sabonete-facial.jpeg";
 const serum = "/images/serum.jpeg";
 const bruma1 = "/images/bruma1.jpeg";
@@ -87,30 +87,6 @@ const palhetasombradisklu = "/images/palhetasombradisklu.jpeg";
 const palhetasombradisklu2 = "/images/palhetasombradisklu2.jpeg";
 const paletasombradanny = "/images/paletasombradanny.jpeg";
 const paletasombradanny2 = "/images/paletasombradanny2.jpeg";
-// const bruma3 = "/images/bruma3.jpeg";
-// const bruma3 = "/images/bruma3.jpeg";
-// const bruma3 = "/images/bruma3.jpeg";
-// const bruma3 = "/images/bruma3.jpeg";
-// const bruma3 = "/images/bruma3.jpeg";
-// const bruma3 = "/images/bruma3.jpeg";
-// const bruma3 = "/images/bruma3.jpeg";
-// const bruma3 = "/images/bruma3.jpeg";
-// const bruma3 = "/images/bruma3.jpeg";
-// const bruma3 = "/images/bruma3.jpeg";
-
-// const bruma3 = "/images/bruma3.jpeg";
-// const bruma3 = "/images/bruma3.jpeg";
-// const bruma3 = "/images/bruma3.jpeg";
-// const bruma3 = "/images/bruma3.jpeg";
-// const bruma3 = "/images/bruma3.jpeg";
-// const bruma3 = "/images/bruma3.jpeg";
-// const bruma3 = "/images/bruma3.jpeg";
-// const bruma3 = "/images/bruma3.jpeg";
-
-
-
-
-
 export const produtos = [
   {
     id: 1,
@@ -119,6 +95,7 @@ export const produtos = [
     preco: 20.0,
     precoAntigo: 0,
     promocao: false,
+    disponivel: true,
     descricao:
       "Sabonete facial suave que remove impurezas, controla a oleosidade e deixa a pele limpa, fresca e macia desde o primeiro uso.",
     imagens: [sabonete_facial],
@@ -130,6 +107,7 @@ export const produtos = [
     preco: 18.0,
     precoAntigo: 0,
     promocao: false,
+    disponivel: true,
     descricao:
       "Sérum facial leve e de rápida absorção, que hidrata profundamente, melhora a textura da pele e deixa um brilho saudável imediato.",
     imagens: [serum],
@@ -141,6 +119,7 @@ export const produtos = [
     preco: 15.0,
     precoAntigo: 0,
     promocao: false,
+    disponivel: true,
     descricao:
       "Bruma facial refrescante que hidrata, fixa a maquiagem e devolve o viço natural da pele ao longo do dia.",
     imagens: [bruma1, bruma2],
@@ -152,6 +131,7 @@ export const produtos = [
     preco: 50.0,
     precoAntigo: 0,
     promocao: false,
+    disponivel: true,
     descricao:
       "Cobertura média, acabamento natural e textura leve que se adapta à pele, garantindo duração e uniformidade ao longo do dia.",
     imagens: [basebrunatavares1, basebrunatavares2],
@@ -163,6 +143,7 @@ export const produtos = [
     preco: 25.0,
     precoAntigo: 0,
     promocao: false,
+    disponivel: true,
     descricao:
       "Alta cobertura, textura cremosa e fácil de espalhar, disfarçando olheiras e imperfeições sem pesar.",
     imagens: [corretivo1, corretivo2, corretivo3],
@@ -174,6 +155,7 @@ export const produtos = [
     preco: 15.0,
     precoAntigo: 0,
     promocao: false,
+    disponivel: true,
     descricao:
       "Textura cremosa, fácil de esfumar e ideal para definir o rosto com acabamento natural e duradouro.",
     imagens: [contorno1],
@@ -185,6 +167,7 @@ export const produtos = [
     preco: 20.0,
     precoAntigo: 0,
     promocao: false,
+    disponivel: true,
     descricao:
       "Fórmula cremosa, super fácil de espalhar, garantindo definição natural e acabamento uniforme.",
     imagens: [contornoloverain, contornoloverain2],
@@ -196,6 +179,7 @@ export const produtos = [
     preco: 20.0,
     precoAntigo: 0,
     promocao: false,
+    disponivel: true,
     descricao:
       "Quatro tons versáteis com textura aveludada, que entregam cor suave, esfumado fácil e um toque de luminosidade na pele.",
     imagens: [quartetoblush, quartetoblush2, quartetoblush3, quartetoblush4, quartetoblush5, quartetoblush6],
@@ -207,6 +191,7 @@ export const produtos = [
     preco: 18.0,
     precoAntigo: 0,
     promocao: false,
+    disponivel: true,
     descricao:
       "Textura leve, fácil de espalhar, entrega cor natural e efeito saudável que dura o dia todo.",
     imagens: [blushfabella, blushfabella2],
@@ -218,6 +203,7 @@ export const produtos = [
     preco: 55.0,
     precoAntigo: 0,
     promocao: false,
+    disponivel: false,
     descricao:
       "Blush e contorno de textura cremosa, fáceis de esfumar e com tons versáteis para um acabamento natural e bem definido.",
     imagens: [blushcarlasecret, blushcarlasecret2],
@@ -229,6 +215,7 @@ export const produtos = [
     preco: 18.0,
     precoAntigo: 0,
     promocao: false,
+    disponivel: true,
     descricao:
       "Textura leve e luminosa que realça a pele com brilho radiante e natural.",
     imagens: [iluminadorfabella, iluminadorfabella2],
@@ -240,6 +227,7 @@ export const produtos = [
     preco: 20.0,
     precoAntigo: 0,
     promocao: false,
+    disponivel: true,
     descricao:
       "Ponta precisa que preenche fio a fio, garantindo definição natural e longa duração.",
     imagens: [canetasobrancelha, canetasobrancelha2],
@@ -253,6 +241,7 @@ export const produtos = [
     preco: 20.0,
     precoAntigo: 0,
     promocao: false,
+    disponivel: true,
     descricao:
       "Tons versáteis, textura macia e fácil de aplicar para corrigir, definir e preencher com naturalidade.",
     imagens: [palhetasobrancelha],
@@ -264,6 +253,7 @@ export const produtos = [
     preco: 20.0,
     precoAntigo: 0,
     promocao: false,
+    disponivel: true,
     descricao: "Fixa, modela e mantém os fios no lugar com efeito natural e duradouro.",
     imagens: [gelsobrancelhachandelle, gelsobrancelhachandelle2],
   },
@@ -274,6 +264,7 @@ export const produtos = [
     preco: 20.0,
     precoAntigo: 0,
     promocao: false,
+    disponivel: true,
     descricao:
       "Modela, fixa e define os fios, garantindo sobrancelhas alinhadas e naturalmente bonitas.",
     imagens: [gelsobrancelhamiamake, gelsobrancelhamiamake2],
@@ -285,6 +276,7 @@ export const produtos = [
     preco: 20.0,
     precoAntigo: 0,
     promocao: false,
+    disponivel: true,
     descricao:
       "Fixa e define os fios, proporcionando sobrancelhas alinhadas com acabamento natural.",
     imagens: [gelsobrancelharubyrose, gelsobrancelharubyrose2],
@@ -292,10 +284,11 @@ export const produtos = [
   {
     id: 18,
     categoria: "OLHOS E SOBRANCELHAS",
-    nome: "Paleta de sombra SARAH’S",
+    nome: "Paleta de sombra SARAH'S",
     preco: 25.0,
     precoAntigo: 0,
     promocao: false,
+    disponivel: true,
     descricao:
       "Cores pigmentadas, textura macia e fácil de esfumar, perfeita para criar desde looks suaves até marcantes.",
     imagens: [paletasombrasarah, paletasombrasarah2],
@@ -307,6 +300,7 @@ export const produtos = [
     preco: 12.0,
     precoAntigo: 0,
     promocao: false,
+    disponivel: true,
     descricao:
       "Alta pigmentação, secagem rápida e ponta precisa para traços definidos e duradouros.",
     imagens: [delineadorplayboy, delineadorplayboy2],
@@ -318,6 +312,7 @@ export const produtos = [
     preco: 10.0,
     precoAntigo: 0,
     promocao: false,
+    disponivel: true,
     descricao: "Secagem rápida e alta fixação para garantir aplicação segura e longa duração.",
     imagens: [colacilios],
   },
@@ -328,6 +323,7 @@ export const produtos = [
     preco: 17.0,
     precoAntigo: 0,
     promocao: false,
+    disponivel: true,
     descricao:
       "Alonga, define e dá volume aos cílios, garantindo olhar marcante e longa duração.",
     imagens: [rimelfabella, rimelfabella2, rimelfabella3],
@@ -339,8 +335,9 @@ export const produtos = [
     preco: 20.0,
     precoAntigo: 0,
     promocao: false,
+    disponivel: true,
     descricao:
-      "Alonga e dá volume, é à prova d’água e não mancha, garantindo cílios impecáveis o dia todo.",
+      "Alonga e dá volume, é à prova d'água e não mancha, garantindo cílios impecáveis o dia todo.",
     imagens: [rimelmelu, rimelmelu2],
   },
   {
@@ -350,6 +347,7 @@ export const produtos = [
     preco: 6.0,
     precoAntigo: 0,
     promocao: false,
+    disponivel: true,
     descricao: "Textura macia e pigmentação intensa para um traço preciso e duradouro.",
     imagens: [lapisolho],
   },
@@ -362,6 +360,7 @@ export const produtos = [
     preco: 10.0,
     precoAntigo: 0,
     promocao: false,
+    disponivel: false,
     descricao:
       "Textura macia, alta pigmentação e precisão para contornar e definir os lábios com facilidade.",
     imagens: [lapisboca],
@@ -373,6 +372,7 @@ export const produtos = [
     preco: 23.0,
     precoAntigo: 0,
     promocao: false,
+    disponivel: true,
     descricao:
       "Batom e lápis de contorno com textura macia, alta pigmentação e acabamento uniforme para lábios definidos e irresistíveis.",
     imagens: [batomlipcombo],
@@ -384,6 +384,7 @@ export const produtos = [
     preco: 20.0,
     precoAntigo: 0,
     promocao: false,
+    disponivel: true,
     descricao:
       "Textura leve, efeito espelhado e acabamento iluminado que realça os lábios sem pesar.",
     imagens: [glossbrilho, glossbrilho2],
@@ -395,6 +396,7 @@ export const produtos = [
     preco: 15.0,
     precoAntigo: 0,
     promocao: false,
+    disponivel: true,
     descricao:
       "Textura leve e confortável, proporcionando lábios hidratados com acabamento natural.",
     imagens: [glossmaxlove, glossmaxlove2],
@@ -408,6 +410,7 @@ export const produtos = [
     preco: 5.0,
     precoAntigo: 0,
     promocao: false,
+    disponivel: true,
     descricao:
       "Macia e de alta precisão, ideal para aplicar e espalhar a maquiagem com acabamento uniforme e natural.",
     imagens: [esponjag, esponjag2],
@@ -419,6 +422,7 @@ export const produtos = [
     preco: 17.0,
     precoAntigo: 0,
     promocao: false,
+    disponivel: true,
     descricao:
       "Compacto e prático, com pincéis essenciais para retoques rápidos e acabamento perfeito em qualquer lugar.",
     imagens: [pincelbolsa, pincelbolsa2, pincelbolsa3],
@@ -430,6 +434,7 @@ export const produtos = [
     preco: 2.0,
     precoAntigo: 0,
     promocao: false,
+    disponivel: true,
     descricao:
       "Macia e precisa, perfeita para aplicar corretivo e alcançar áreas menores com acabamento impecável.",
     imagens: [miniesponja, miniesponja2],
@@ -441,6 +446,7 @@ export const produtos = [
     preco: 2.0,
     precoAntigo: 0,
     promocao: false,
+    disponivel: true,
     descricao:
       "Macia e aveludada, ideal para aplicar e selar a maquiagem com acabamento suave e uniforme.",
     imagens: [esponjapo, esponjapo2],
@@ -452,6 +458,7 @@ export const produtos = [
     preco: 2.0,
     precoAntigo: 0,
     promocao: false,
+    disponivel: true,
     descricao:
       "Aveludada e precisa, perfeita para selar áreas menores com acabamento suave e impecável.",
     imagens: [miniesponjapo, miniesponjapo2, miniesponjapo3],
@@ -463,6 +470,7 @@ export const produtos = [
     preco: 20.0,
     precoAntigo: 0,
     promocao: false,
+    disponivel: true,
     descricao:
       "Cerdas macias e alta precisão para aplicar, esfumar e finalizar a maquiagem com acabamento profissional.",
     imagens: [kitpincel, kitpincel2, kitpincel3, kitpincel4, kitpincel5, kitpincel6],
@@ -474,6 +482,7 @@ export const produtos = [
     preco: 10.0,
     precoAntigo: 0,
     promocao: false,
+    disponivel: true,
     descricao:
       "Macia e ajustável, mantém o cabelo no lugar durante a maquiagem e cuidados com a pele.",
     imagens: [faixa, faixa2],
@@ -487,6 +496,7 @@ export const produtos = [
     preco: 20.0,
     precoAntigo: 0,
     promocao: false,
+    disponivel: true,
     descricao:
       "Textura leve, rápida absorção e hidratação prolongada que deixa a pele macia e perfumada.",
     imagens: [hidratantecorporal, hidratantecorporal2, hidratantecorporal3],
@@ -498,6 +508,7 @@ export const produtos = [
     preco: 20.0,
     precoAntigo: 0,
     promocao: false,
+    disponivel: true,
     descricao:
       "Remove células mortas, deixa a pele mais lisa e macia, renovada desde a primeira aplicação.",
     imagens: [esfoliante],
@@ -509,6 +520,7 @@ export const produtos = [
     preco: 15.0,
     precoAntigo: 0,
     promocao: false,
+    disponivel: true,
     descricao:
       "Remove a maquiagem com facilidade, limpa suavemente e deixa a pele fresca e macia.",
     imagens: [demaquilante],
@@ -520,6 +532,7 @@ export const produtos = [
     preco: 20.0,
     precoAntigo: 0,
     promocao: false,
+    disponivel: true,
     descricao:
       "Textura fina que sela a maquiagem, controla a oleosidade e deixa a pele com acabamento suave e aveludado.",
     imagens: [posolto, posolto2],
@@ -532,6 +545,7 @@ export const produtos = [
     preco: 20.0,
     precoAntigo: 0,
     promocao: false,
+    disponivel: true,
     descricao:
       "Textura fina que ilumina suavemente, sela a maquiagem e deixa a pele com acabamento aveludado e uniforme.",
     imagens: [porosa, porosa2],
@@ -543,6 +557,7 @@ export const produtos = [
     preco: 20.0,
     precoAntigo: 0,
     promocao: false,
+    disponivel: true,
     descricao:
       "Textura fina que sela a maquiagem, controla a oleosidade e ilumina a pele com acabamento suave e uniforme.",
     imagens: [pobananavivai, pobananavivai2],
@@ -554,6 +569,7 @@ export const produtos = [
     preco: 20.0,
     precoAntigo: 0,
     promocao: false,
+    disponivel: true,
     descricao:
       "Textura fina que sela a maquiagem, controla a oleosidade e ilumina a pele com acabamento suave e uniforme.",
     imagens: [pobananafenzza, pobananafenzza2],
@@ -566,6 +582,7 @@ export const produtos = [
     preco: 20.0,
     precoAntigo: 0,
     promocao: false,
+    disponivel: true,
     descricao:
       "Combina tons opacos e cintilantes, alta pigmentação e textura macia para criar looks versáteis do básico ao glam",
     imagens: [palhetasombradisklu, palhetasombradisklu2],
@@ -577,6 +594,7 @@ export const produtos = [
     preco: 20.0,
     precoAntigo: 0,
     promocao: false,
+    disponivel: true,
     descricao:
       "Combina tons opacos e cintilantes, alta pigmentação e textura macia para criar looks versáteis do básico ao glam",
     imagens: [paletasombradanny, paletasombradanny2],
